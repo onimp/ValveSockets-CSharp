@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>11</LangVersion>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <PackageId>ValveSockets-CSharp</PackageId>
+        <Version>1.2.0</Version>
+        <Authors>nxrighthere</Authors>
+        <Company>onimp</Company>
+        <PackageDescription>Compiled ValveSockets-CSharp packed as nuget dependency for easier developement</PackageDescription>
+        <RepositoryUrl>https://github.com/onimp/ValveSockets-CSharp</RepositoryUrl>
+        <RootNamespace>GameNetworkingSockets</RootNamespace>
+    </PropertyGroup>
+    <Import Condition="Exists('Directory.Build.props.user')" Project="Directory.Build.props.user" />
+    <PropertyGroup Condition="!Exists('Directory.Build.props.user')">
+        <SteamLibraryPath>C:\Program Files (x86)\Steam</SteamLibraryPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ManagedPath>$(SteamLibraryPath)\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</ManagedPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(ManagedPath)\Assembly-CSharp-firstpass.dll" Private="false" />
+    </ItemGroup>
+</Project>
